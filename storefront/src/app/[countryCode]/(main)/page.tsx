@@ -5,6 +5,7 @@ import Hero from "@modules/home/components/hero"
 import { getCollectionsWithProducts } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 import HeroBox from "@modules/home/components/hero-box"
+import { motion } from "framer-motion"
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",

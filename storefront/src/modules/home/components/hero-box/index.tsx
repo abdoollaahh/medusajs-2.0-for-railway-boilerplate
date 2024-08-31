@@ -1,3 +1,7 @@
+"use client"
+
+import React from "react"
+import { motion } from "framer-motion"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Image from "next/image"
 import New from "/public/images/sedan.svg"
@@ -9,74 +13,94 @@ const data = [
     id: "1",
     title: "New",
     handle: "new-cars",
-    products: [],
     link: "new",
-    image: "New",
+    image: New,
   },
   {
     id: "2",
     title: "Used",
     handle: "used-cars",
-    products: [],
     link: "used",
-    image: "Used",
+    image: Used,
   },
   {
     id: "3",
     title: "Rental",
     handle: "rental-cars",
-    products: [],
     link: "rental",
-    Image: "Rental",
+    image: Rental,
   },
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.1,
+      duration: 0.5,
+      type: "spring",
+      stiffness: 50,
+      when: "beforeChildren",
+      staggerChildren: 0.3,
+    },
+  },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 },
+}
+
 const HeroBox: React.FC = () => {
   return (
-    <div className="relative md:-mt-20 md:mx-44 rounded-lg shadow-xl p-10 lg:p-5 z-10 bg-white">
+    <motion.div
+      className="relative md:-mt-20 md:mx-[250px] rounded-3xl shadow-xl p-10 lg:p-5 z-10 bg-white"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      whileHover={{
+        scale: 1.02,
+        boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
+      }}
+      transition={{ type: "spring", stiffness: 200, damping: 10 }}
+    >
       <div className="flex flex-col md:flex-row justify-between px-4">
         <div className="p-5">
-          <h1 className="md:text-4xl text-2xl md:text-start text-center font-semibold text-slate-600">
+          <motion.h1
+            className="md:text-4xl text-2xl md:text-start text-center font-semibold text-slate-600 cursor-default"
+            variants={itemVariants}
+          >
             Search for your dream car
-          </h1>
-          <ul className="flex flex-col md:flex-row  md:gap-5 justify-center items-center md:justify-start">
-            <li className="flex py-12">
-              <LocalizedClientLink
-                className="hover:text-ui-fg-base"
-                href={`/categories/new`}
+          </motion.h1>
+          <motion.ul
+            className="flex flex-col md:flex-row md:gap-5 justify-center items-center md:justify-start"
+            variants={itemVariants}
+          >
+            {data.map((item) => (
+              <motion.li
+                key={item.id}
+                className="flex py-12"
+                variants={itemVariants}
               >
-                <div className=" bg-gray-100 w-48 flex flex-col justify-center items-center rounded-md">
-                  <Image src={New} width={100} alt="hero1" />
-                  <div className="pb-5">New</div>
-                </div>
-              </LocalizedClientLink>
-            </li>
-            <li className="flex py-12">
-              <LocalizedClientLink
-                className="hover:text-ui-fg-base"
-                href={`/categories/used`}
-              >
-                <div className=" bg-gray-100 w-48 flex flex-col justify-center items-center rounded-md">
-                  <Image src={Used} width={100} alt="hero1" />
-                  <div className="pb-5">Used</div>
-                </div>
-              </LocalizedClientLink>
-            </li>
-            <li className="flex py-12">
-              <LocalizedClientLink
-                className="hover:text-ui-fg-base"
-                href={`/categories/rental`}
-              >
-                <div className=" bg-gray-100 w-48 flex flex-col justify-center items-center rounded-md">
-                  <Image src={Rental} width={100} alt="hero1" />
-                  <div className="pb-5">Rental</div>
-                </div>
-              </LocalizedClientLink>
-            </li>
-          </ul>
+                <LocalizedClientLink
+                  className="hover:text-ui-fg-base"
+                  href={`/categories/${item.link}`}
+                >
+                  <div className="bg-gray-100 w-48 flex flex-col justify-center items-center rounded-md hover:shadow-lg transition duration-300">
+                    <Image src={item.image} width={100} alt={item.title} />
+                    <div className="pb-5">{item.title}</div>
+                  </div>
+                </LocalizedClientLink>
+              </motion.li>
+            ))}
+          </motion.ul>
         </div>
-        <div className="flex flex-col justify-center items-center">
-          <p className="text-2xl font-semibold">{/* {totalProducts} */} Or</p>
+        <motion.div
+          className="flex flex-col justify-center items-center"
+          variants={itemVariants}
+        >
           <LocalizedClientLink
             className="hover:text-ui-fg-base"
             href={`/store`}
@@ -85,9 +109,10 @@ const HeroBox: React.FC = () => {
               View All
             </button>
           </LocalizedClientLink>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   )
 }
+
 export default HeroBox

@@ -1,6 +1,6 @@
 import { Text } from "@medusajs/ui"
-/* import Logo from "/public/images/logo2.svg"
- */ import Image from "next/image"
+import Logo from "/public/images/logoWhite.svg"
+import Image from "next/image"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import MedusaCTA from "@modules/layout/components/medusa-cta"
@@ -15,17 +15,16 @@ export default async function Footer() {
               href="/"
               className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
             >
-              {/*               <Image src={Logo} alt="Logo" width={200} />
-               */}{" "}
+              <Image src={Logo} alt="Logo" width={200} />
             </LocalizedClientLink>
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
             <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus text-white">Socials</span>
+              <span className="text-lg text-white">Socials</span>
               <ul className="grid grid-cols-1 gap-y-2 txt-small text-ui-fg-muted">
                 <li>
                   <a
-                    href="https://github.com/medusajs"
+                    href="https://www.facebook.com/share/xcz631K38SAyKYpA/?mibextid=LQQJ4d"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-white"
@@ -35,7 +34,7 @@ export default async function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://docs.medusajs.com"
+                    href="https://www.instagram.com/space_car.cernier?igsh=MXhhcGFxYmt2Zndj&utm_source=qr"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-white"
@@ -45,12 +44,12 @@ export default async function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://github.com/medusajs/nextjs-starter-medusa"
+                    href="wa.me/41767979217s"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-white"
                   >
-                    Youtube{" "}
+                    Whatsapp
                   </a>
                 </li>
               </ul>

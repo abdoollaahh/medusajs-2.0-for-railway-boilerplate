@@ -1,6 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react"
 import { Button, clx } from "@medusajs/ui"
-import React, { Fragment, useMemo } from "react"
+import React, { Fragment, useMemo, useState } from "react"
 
 import useToggleState from "@lib/hooks/use-toggle-state"
 import ChevronDown from "@modules/common/icons/chevron-down"
@@ -48,6 +48,12 @@ const MobileActions: React.FC<MobileActionsProps> = ({
 
     return variantPrice || cheapestPrice || null
   }, [price])
+
+  const [showPhoneNumber, setShowPhoneNumber] = useState(false)
+
+  const handleShowPhoneNumber = () => {
+    setShowPhoneNumber(!showPhoneNumber)
+  }
 
   return (
     <>
@@ -112,7 +118,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                 </div>
               </Button>
               <Button
-                onClick={handleAddToCart}
+                onClick={handleShowPhoneNumber}
                 disabled={!inStock || !variant}
                 className="w-full"
                 isLoading={isAdding}
@@ -166,6 +172,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                       <X />
                     </button>
                   </div>
+
                   <div className="bg-white px-6 py-12">
                     {(product.variants?.length ?? 0) > 1 && (
                       <div className="flex flex-col gap-y-6">
