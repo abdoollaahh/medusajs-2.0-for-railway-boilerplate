@@ -1,8 +1,8 @@
 import { listRegions } from "@lib/data/regions"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import SideMenu from "@modules/layout/components/side-menu"
-import Logo from "/public/images/logo.svg"
-import Image from "next/image"
+/* import Logo from "/public/images/logo.svg"
+ */ import Image from "next/image"
 
 export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
@@ -16,7 +16,8 @@ export default async function Nav() {
               href="/"
               className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
             >
-              <Image src={Logo} alt="Logo" width={200} />
+              {/*               <Image src={Logo} alt="Logo" width={200} />
+               */}
             </LocalizedClientLink>
           </div>
           <div className="h-full mx-10">

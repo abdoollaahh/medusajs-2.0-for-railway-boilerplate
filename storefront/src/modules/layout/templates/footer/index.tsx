@@ -1,6 +1,6 @@
 import { Text } from "@medusajs/ui"
-import Logo from "/public/images/logo2.svg"
-import Image from "next/image"
+/* import Logo from "/public/images/logo2.svg"
+ */ import Image from "next/image"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import MedusaCTA from "@modules/layout/components/medusa-cta"
@@ -15,7 +15,8 @@ export default async function Footer() {
               href="/"
               className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
             >
-              <Image src={Logo} alt="Logo" width={200} />
+              {/*               <Image src={Logo} alt="Logo" width={200} />
+               */}{" "}
             </LocalizedClientLink>
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
