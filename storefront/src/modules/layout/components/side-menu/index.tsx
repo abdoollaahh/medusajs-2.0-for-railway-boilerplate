@@ -1,20 +1,20 @@
 "use client"
 
 import { Popover, Transition } from "@headlessui/react"
-import { ArrowRightMini, XMark } from "@medusajs/icons"
-import { Text, clx, useToggleState } from "@medusajs/ui"
+import { XMark } from "@medusajs/icons"
+import { Text, useToggleState } from "@medusajs/ui"
 import { Fragment } from "react"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import CountrySelect from "../country-select"
+
 import { HttpTypes } from "@medusajs/types"
 
 const SideMenuItems = {
   Home: "/",
-  Store: "/store",
+  Garage: "/store",
   Search: "/search",
-  Account: "/account",
-  Cart: "/cart",
+  "Sell Your Car": "/sell",
+  "Contact Us": "/contact",
 }
 
 const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
@@ -34,7 +34,6 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                   Menu
                 </Popover.Button>
               </div>
-
               <Transition
                 show={open}
                 as={Fragment}
@@ -45,10 +44,10 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                 leaveFrom="opacity-100 backdrop-blur-2xl"
                 leaveTo="opacity-0"
               >
-                <Popover.Panel className="flex flex-col absolute w-full pr-4 sm:pr-0 sm:w-1/3 2xl:w-1/4 sm:min-w-min h-[calc(100vh-1rem)] z-30 inset-x-0 text-sm text-ui-fg-on-color m-2 backdrop-blur-2xl">
+                <Popover.Panel className="flex flex-col absolute w-full pr-4 sm:pr-0 sm:w-1/3 2xl:w-1/4 sm:min-w-min h-[calc(100vh-1rem)] z-30 inset-x-0 text-sm text-ui-fg-on-color m-2">
                   <div
                     data-testid="nav-menu-popup"
-                    className="flex flex-col h-full bg-[rgba(3,7,18,0.5)] rounded-rounded justify-between p-6"
+                    className="flex flex-col h-full bg-[rgba(21,35,66,0.95)] rounded-rounded justify-between p-6"
                   >
                     <div className="flex justify-end" id="xmark">
                       <button data-testid="close-menu-button" onClick={close}>
@@ -72,7 +71,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                       })}
                     </ul>
                     <div className="flex flex-col gap-y-6">
-                      <div
+                      {/* <div
                         className="flex justify-between"
                         onMouseEnter={toggleState.open}
                         onMouseLeave={toggleState.close}
@@ -89,9 +88,9 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                             toggleState.state ? "-rotate-90" : ""
                           )}
                         />
-                      </div>
+                      </div> */}
                       <Text className="flex justify-between txt-compact-small">
-                        © {new Date().getFullYear()} Medusa Store. All rights
+                        © {new Date().getFullYear()} Space-Car. All rights
                         reserved.
                       </Text>
                     </div>

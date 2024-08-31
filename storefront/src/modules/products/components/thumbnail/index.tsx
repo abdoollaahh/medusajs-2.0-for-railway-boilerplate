@@ -20,7 +20,6 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   size = "small",
   isFeatured,
   className,
-  "data-testid": dataTestid,
 }) => {
   const initialImage = thumbnail || images?.[0]?.url
 
@@ -30,8 +29,8 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
         "relative w-full overflow-hidden p-4 bg-ui-bg-subtle shadow-elevation-card-rest rounded-large group-hover:shadow-elevation-card-hover transition-shadow ease-in-out duration-150",
         className,
         {
-          "aspect-[11/14]": isFeatured,
-          "aspect-[9/16]": !isFeatured && size !== "square",
+          "aspect-[4/3]": isFeatured && size !== "square",
+          "aspect-[4/4]": !isFeatured && size !== "square",
           "aspect-[1/1]": size === "square",
           "w-[180px]": size === "small",
           "w-[290px]": size === "medium",
@@ -39,7 +38,6 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
           "w-full": size === "full",
         }
       )}
-      data-testid={dataTestid}
     >
       <ImageOrPlaceholder image={initialImage} size={size} />
     </Container>
