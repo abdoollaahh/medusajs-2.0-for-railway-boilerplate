@@ -1,5 +1,7 @@
 import { EllipseMiniSolid } from "@medusajs/icons"
 import { Label, RadioGroup, Text, clx } from "@medusajs/ui"
+import React from "react"
+import LocalizedClientLink from "../localized-client-link"
 
 type FilterRadioGroupProps = {
   title: string
@@ -21,6 +23,26 @@ const FilterRadioGroup = ({
 }: FilterRadioGroupProps) => {
   return (
     <div className="flex gap-x-3 flex-col gap-y-3">
+      <ul className="my-3 text-lg gap-y-2 flex flex-col">
+        <li>
+          <LocalizedClientLink href={`/store`}>All</LocalizedClientLink>
+        </li>
+        <li>
+          <LocalizedClientLink href={`/categories/used`}>
+            Used
+          </LocalizedClientLink>
+        </li>
+        <li>
+          <LocalizedClientLink href={`/categories/new`}>
+            New
+          </LocalizedClientLink>
+        </li>
+        <li>
+          <LocalizedClientLink href={`/categories/rental`}>
+            Rental
+          </LocalizedClientLink>
+        </li>
+      </ul>
       <Text className="txt-compact-small-plus text-ui-fg-muted">{title}</Text>
       <RadioGroup data-testid={dataTestId} onValueChange={handleChange}>
         {items?.map((i) => (

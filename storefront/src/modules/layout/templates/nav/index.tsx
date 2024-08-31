@@ -2,7 +2,8 @@ import { listRegions } from "@lib/data/regions"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import SideMenu from "@modules/layout/components/side-menu"
 /* import Logo from "/public/images/logo.svg"
- */ import Image from "next/image"
+ */
+import Image from "next/image"
 
 export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
