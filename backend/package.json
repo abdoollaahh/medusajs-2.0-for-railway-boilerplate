@@ -35,7 +35,7 @@
     "@medusajs/fulfillment": "preview",
     "@medusajs/fulfillment-manual": "preview",
     "@medusajs/inventory-next": "preview",
-    "@medusajs/medusa": "1.20.3",
+    "@medusajs/medusa": "preview",
     "@medusajs/notification": "preview",
     "@medusajs/notification-local": "preview",
     "@medusajs/notification-sendgrid": "preview",
